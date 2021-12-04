@@ -565,6 +565,28 @@ Tags.defaultTags = {
 		
 		return string.format("%s/%s", ShadowUF:FormatLargeNumber(power), ShadowUF:FormatLargeNumber(maxPower))
 	end]],
+	["curmaxenergy"] = [[function(unit, unitOwner)
+		local maxPower = UnitPowerMax(unit, 3)
+		local power = UnitPower(unit, 3)
+		if( UnitIsDeadOrGhost(unit) ) then
+			return string.format("0/%s", ShadowUF:FormatLargeNumber(maxPower))
+		elseif( maxPower <= 0 ) then
+			return nil
+		end
+		
+		return string.format("%s/%s", ShadowUF:FormatLargeNumber(power), ShadowUF:FormatLargeNumber(maxPower))
+	end]],
+	["curmaxrage"] = [[function(unit, unitOwner)
+		local maxPower = UnitPowerMax(unit, 1)
+		local power = UnitPower(unit, 1)
+		if( UnitIsDeadOrGhost(unit) ) then
+			return string.format("0/%s", ShadowUF:FormatLargeNumber(maxPower))
+		elseif( maxPower <= 0 ) then
+			return nil
+		end
+		
+		return string.format("%s/%s", ShadowUF:FormatLargeNumber(power), ShadowUF:FormatLargeNumber(maxPower))
+	end]],
 	["smart:curmaxpp"] = [[function(unit, unitOwner)
 		local maxPower = UnitPowerMax(unit)
 		local power = UnitPower(unit)
@@ -825,6 +847,8 @@ Tags.defaultEvents = {
 	["curpp"]               = "UNIT_ENERGY UNIT_FOCUS UNIT_MANA UNIT_RAGE UNIT_RUNIC_POWER UNIT_DISPLAYPOWER",
 	["abscurpp"]            = "UNIT_ENERGY UNIT_FOCUS UNIT_MANA UNIT_RAGE UNIT_RUNIC_POWER UNIT_DISPLAYPOWER UNIT_MAXENERGY UNIT_MAXFOCUS UNIT_MAXMANA UNIT_MAXRAGE UNIT_MAXRUNIC_POWERR",
 	["curmaxpp"]			= "UNIT_ENERGY UNIT_FOCUS UNIT_MANA UNIT_RAGE UNIT_RUNIC_POWER UNIT_DISPLAYPOWER UNIT_MAXENERGY UNIT_MAXFOCUS UNIT_MAXMANA UNIT_MAXRAGE UNIT_MAXRUNIC_POWER",
+	["curmaxenergy"]		= "UNIT_ENERGY UNIT_MAXENERGY",
+	["curmaxrage"]			= "UNIT_RAGE UNIT_MAXRAGE",
 	["absolutepp"]			= "UNIT_ENERGY UNIT_FOCUS UNIT_MANA UNIT_RAGE UNIT_RUNIC_POWER UNIT_DISPLAYPOWER UNIT_MAXENERGY UNIT_MAXFOCUS UNIT_MAXMANA UNIT_MAXRAGE UNIT_MAXRUNIC_POWER",
 	["smart:curmaxpp"]		= "UNIT_ENERGY UNIT_FOCUS UNIT_MANA UNIT_RAGE UNIT_RUNIC_POWER UNIT_DISPLAYPOWER UNIT_MAXENERGY UNIT_MAXFOCUS UNIT_MAXMANA UNIT_MAXRAGE UNIT_MAXRUNIC_POWER",
 	["druid:curpp"]  	    = "UNIT_MANA UNIT_DISPLAYPOWER",
@@ -921,6 +945,8 @@ Tags.defaultCategories = {
 	["curpp"]				= "power",
 	["curmaxhp"]			= "health",
 	["curmaxpp"]			= "power",
+	["curmaxenergy"]		= "power",
+	["curmaxrage"]			= "power",
 	["levelcolor"]			= "classification",
 	["def:name"]			= "health",
 	["faction"]				= "classification",
@@ -996,6 +1022,8 @@ Tags.defaultHelp = {
 	["curpp"]				= L["Current power, uses a short format, 12750 is formatted as 12.7k, values below 10000 are formatted as is."],
 	["curmaxhp"]			= L["Current and maximum health, formatted as [curhp]/[maxhp], if the unit is dead or offline then that is shown instead."],
 	["curmaxpp"]			= L["Current and maximum power, formatted as [curpp]/[maxpp]."],
+	["curmaxenergy"]		= L["Current and maximum energy, formatted as [curenergy]/[maxenergy]."],
+	["curmaxrage"]			= L["Current and maximum rage, formatted as [currage]/[maxrage]."],
 	["levelcolor"]			= L["Returns the color code based off of the units level compared to yours. If you cannot attack them then no color is returned."],
 	["def:name"]			= L["When the unit is mising health, the [missinghp] tag is shown, when they are at full health then the [name] tag is shown. This lets you see -1000 when they are missing 1000 HP, but their name when they are not missing any."],
 	["faction"]				= L["Units alignment, Thrall will return Horde, Magni Bronzebeard will return Alliance."],
@@ -1074,6 +1102,8 @@ Tags.defaultNames = {
 	["curpp"]				= L["Current Power (Short)"],
 	["curmaxhp"]			= L["Cur/Max HP (Short)"],
 	["curmaxpp"]			= L["Cur/Max Power (Short)"],
+	["curmaxenergy"]		= L["Cur/Max Energy (Short)"],
+	["curmaxrage"]			= L["Cur/Max Rage (Short)"],
 	["levelcolor"]			= L["Level (Colored)"],
 	["def:name"]			= L["Deficit/Unit Name"],
 	["faction"]				= L["Unit faction"],
