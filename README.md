@@ -12,6 +12,12 @@ Copy content to *Interface / Addons* folder
 I'm not the author of addon. Check configuration / setup instructions on [Original Addon](https://www.curseforge.com/wow/addons/shadowed-unit-frames) page
 
 ## Example:
-Type /suf
+
+- /suf
+- Unit Configuration -> Player
+- Bars -> Enable Empty Bar
+- Text/Tags -> Empty Bar -> Text
+
+
 
 ![Rage / Energy Display](https://i.ibb.co/qYHzX7F/suf-example.png)
