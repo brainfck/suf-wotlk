@@ -4,7 +4,7 @@ Modified Shadowed Unit Frames addon for [Ascension Project](https://ascension.gg
 
 Added possibility to display all 3 powers: *Mana, Rage, Energy* **simultaniously**
 
-I'm not the author of addon, all rights belongs to [Original Addon](https://www.curseforge.com/wow/addons/shadowed-unit-frames) authors.
+I'm not the author of addon, all rights belong to [Original Addon](https://www.curseforge.com/wow/addons/shadowed-unit-frames) authors.
 
 ## Installation:
 Copy content to *Interface / Addons* folder
